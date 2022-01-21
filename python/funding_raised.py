@@ -1,9 +1,15 @@
+# 1. Weshould create a new function to replace the repeating IF statements
+
+#2. select IFs - right clic k - create new Function 
+
+
 import csv
 
 class FundingRaised:
   @staticmethod
+  # where function name should be changed to smth more specific- 
   def where(options = {}):
-    with open("../startup_funding.csv", "rt") as csvfile:
+    with open("C:\\Users\\Eldar\\Dropbox\\eldar_docs\\study\\deggendorf\\ws21-22\\innovation Bohler\\exam prep\\startup_funding.csv", "rt") as csvfile:
       data = csv.reader(csvfile, delimiter=',', quotechar='"')
       # skip header
       next(data)
@@ -12,21 +18,22 @@ class FundingRaised:
         csv_data.append(row)
 
     funding = []
-    if 'company_name' in options:
+
+    
+for option in options:
+  
       result = []
       for row in csv_data:
         if row[1] == options['company_name']:
           result.append(row)
       csv_data = result
 
-    if 'city' in options:
       result = []
       for row in csv_data:
         if row[4] == options['city']:
           result.append(row)
       csv_data = result
 
-    if 'state' in options:
       result = []
       for row in csv_data:
         if row[5] == options['state']:
@@ -58,6 +65,8 @@ class FundingRaised:
     return output
 
   @staticmethod
+  
+  # find_by function name to change!
   def find_by(options):
     with open("../startup_funding.csv", "rt") as csvfile:
       data = csv.reader(csvfile, delimiter=',', quotechar='"')
